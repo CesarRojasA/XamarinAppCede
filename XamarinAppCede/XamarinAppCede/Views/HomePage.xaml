@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XamarinAppCede.Views.HomePage">
+
+    <ContentPage.Content>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition/>                
+            </Grid.RowDefinitions>
+
+            <StackLayout
+                Orientation="Horizontal"                
+                HorizontalOptions="Center"
+                Margin="10"
+                Grid.Row="0">
+                <Button
+                    Style="{StaticResource ButtonHome}"
+                    Command="{Binding ShowDrinksCommand}"
+                    ImageSource="DRINK"/>
+                <Button
+                    Style="{StaticResource ButtonHome}"
+                     Command="{Binding ShowCakesCommand}"
+                    ImageSource="CAKE"/>
+                <Button
+                    Style="{StaticResource ButtonHome}"
+                    Command="{Binding ShowAllCommand}"
+                    ImageSource="ALL"/>
+            </StackLayout>
+            <CollectionView
+                Grid.Row="1"
+                ItemsSource="{Binding AllProducts}">                
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout                        
+                        Orientation="Vertical"
+                        Span="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame 
+                                Style="{StaticResource FrameLogin }"
+                                Margin="10"
+                                HeightRequest="180">
+                                <StackLayout 
+                                    Orientation="Vertical">
+                                    <ffimageloading:CachedImage
+                                    Source="{Binding FullImageUrl}"
+                                        HeightRequest="100"
+                                        WidthRequest="100"
+                                        Margin="5"/>
+                                    <Label
+                                        Style="{StaticResource LabelProduct}"
+                                        Text="{Binding Name}"/>
+                                    <Label
+                                        Style="{StaticResource LabelProduct}"
+                                        Text="{Binding Price, StringFormat='${0}'}"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button 
+                Grid.Row="1"
+                Image="LOGOUT"
+                Command="{Binding LogoutCommand}"
+                Style="{StaticResource ButtonHome}"
+                CornerRadius="30"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Margin="20"/>
+            <Button 
+                Grid.Row="1"
+                Image="MAP"
+                Command="{Binding MapCommand}"
+                Style="{StaticResource ButtonHome}"
+                CornerRadius="30"
+                HorizontalOptions="Start"
+                VerticalOptions="End"
+                Margin="20"/>
+        </Grid>
+
+    </ContentPage.Content>
+    
+  
+</ContentPage>

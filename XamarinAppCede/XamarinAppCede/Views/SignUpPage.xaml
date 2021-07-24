@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XamarinAppCede.Views.SignUpPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="0.25*"/>
+                        <RowDefinition Height="0.6*"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                        Text="SIGNUP" 
+                        Style="{StaticResource LabelTitle}"/>
+                    <Image 
+                        Grid.Row="1"
+                        Source="LOGO" 
+                        Style="{StaticResource ImageLogin}"/>
+                    <Label 
+                        Grid.Row="1"
+                        Text="CakeApp"
+                        FontSize="Subtitle"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"/>
+                    <Frame 
+                        Style="{StaticResource FrameLogin}"
+                        Grid.Row="2">
+                        <StackLayout 
+                            Spacing="15"
+                            Padding="10">
+                            <Entry
+                                Text="{Binding FullName}"
+                                Placeholder="Full Name"
+                                Keyboard="Text"                
+                                Style="{StaticResource Entry}"/>
+                            <Entry                        
+                                Text="{Binding Email}"
+                                Placeholder="E-mail"
+                                Keyboard="Email"
+                                Style="{StaticResource Entry}"/>
+                            <Entry
+                                Text="{Binding Password}"
+                                Placeholder="Password"
+                                IsPassword="True"
+                                Style="{StaticResource Entry}"/>
+                            <Entry
+                                Text="{Binding ConfirmPassword}"
+                                Placeholder="Confirm Password"
+                                IsPassword="True"
+                                Style="{StaticResource Entry}"/>
+                            <Button                        
+                                Text="Sign Up"
+                                IsEnabled="{Binding IsEnableBTN}"
+                                Style="{StaticResource Button}"
+                                Command="{Binding SignUpCommand}"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

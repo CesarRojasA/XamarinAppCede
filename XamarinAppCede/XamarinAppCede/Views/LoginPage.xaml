@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XamarinAppCede.Views.LoginPage">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="0.25*"/>
+                        <RowDefinition Height="0.6*"/>
+                    </Grid.RowDefinitions>
+                    <Label 
+                        Style="{StaticResource LabelTitle}"
+                        Text="LOGIN"/>
+                    <Image 
+                        x:Name="LOGOIMG"
+                        Style="{StaticResource ImageLogin}"
+                        Grid.Row="1"
+                        Source="LOGO"/>
+                    <Label 
+                        Grid.Row="1"
+                        Text="CakeApp"
+                        FontSize="Subtitle"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Start"/>
+                    <Frame
+                        Style="{StaticResource FrameLogin}"
+                        Grid.Row="2">
+                        
+                        <StackLayout                    
+                            Spacing="15"
+                            Padding="10">
+                            <Entry                        
+                                Text="{Binding Email}"
+                                Style="{StaticResource Entry}"
+                                Placeholder="E-mail"
+                                Keyboard="Email"/>
+                            <Entry
+                                Text="{Binding Password}"
+                                Style="{StaticResource Entry}"
+                                Placeholder="Password"
+                                IsPassword="True"/>
+                            <Button
+                                Text="Login"
+                                Clicked="Button_ClickedAnimation"
+                                Style="{StaticResource Button}"
+                                Command="{Binding LoginCommand}"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

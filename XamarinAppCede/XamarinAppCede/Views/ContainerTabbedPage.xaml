@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="XamarinAppCede.Views.ContainerTabbedPage"
+            xmlns:locals="clr-namespace:XamarinAppCede.Views"
+            BarBackgroundColor="#BA5B52">
+    
+    <locals:LoginPage
+        Title="LOGIN"
+        IconImageSource="LOGIN"/>
+
+    <locals:SignUpPage
+        Title="SIGNUP"
+        IconImageSource="REGISTER"/>
+
+</TabbedPage>
